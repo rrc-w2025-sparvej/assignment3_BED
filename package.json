@@ -10,15 +10,17 @@
     "test": "jest"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "joi": "^17.13.3"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
     "@types/joi": "^17.2.2",
-    "@types/node": "^20.0.0",
+    "@types/node": "^20.19.33",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.6",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.9.3"
   }
 }
