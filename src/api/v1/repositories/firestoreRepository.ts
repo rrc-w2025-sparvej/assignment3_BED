@@ -49,9 +49,8 @@ export const createDocument = async <T>(
     }
 };
 
-/**
- * Retrieves all documents from a specified Firestore collection.
- */
+// Retrieves all documents from a specified Firestore collection.
+ 
 export const getDocuments = async (
     collectionName: string
 ): Promise<FirebaseFirestore.QuerySnapshot> => {
@@ -66,9 +65,8 @@ export const getDocuments = async (
     }
 };
 
-/**
- * Retrieves a document by its ID.
- */
+// Retrieves a document by its ID.
+ 
 export const getDocumentById = async (
     collectionName: string,
     id: string
@@ -88,9 +86,8 @@ export const getDocumentById = async (
     }
 };
 
-/**
- * Updates an existing document.
- */
+// Updates an existing document.
+ 
 export const updateDocument = async <T>(
     collectionName: string,
     id: string,
@@ -107,9 +104,8 @@ export const updateDocument = async <T>(
     }
 };
 
-/**
- * Deletes a document.
- */
+//  Deletes a document.
+ 
 export const deleteDocument = async (
     collectionName: string,
     id: string,
@@ -134,9 +130,8 @@ export const deleteDocument = async (
     }
 };
 
-/**
- * Deletes documents matching multiple field values.
- */
+// Deletes documents matching multiple field values.
+ 
 export const deleteDocumentsByFieldValues = async (
     collectionName: string,
     fieldValuePairs: FieldValuePair[],
