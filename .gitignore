@@ -1,2 +1,6 @@
 node_modules/
 dist/
+
+# Firebase Admin Key
+*.json
+!package.json
