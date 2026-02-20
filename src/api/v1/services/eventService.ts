@@ -19,13 +19,17 @@ export const getAllEvents = (): Event[] => events;
 export const getEventById = (id: string): Event | undefined =>
   events.find(e => e.id === id);
 
-export const updateEvent = (id: string, update: Partial<Event>): Event | null => {
-  const event = events.find(e => e.id === id);
-  if (!event) return null;
+export const updateEvent = (
+id: string,
+update: Partial<CreateEventDTO>
+): Event | undefined => {
+const event = events.find(e => e.id === id);
+if (!event) return undefined;
 
-  Object.assign(event, update);
-  return event;
+Object.assign(event, update);
+return event;
 };
+
 
 export const deleteEvent = (id: string): boolean => {
   const index = events.findIndex(e => e.id === id);
