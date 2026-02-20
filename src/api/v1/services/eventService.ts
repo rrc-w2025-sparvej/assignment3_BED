@@ -13,3 +13,8 @@ export const createEvent = (eventData: CreateEventDTO): Event => {
   events.push(newEvent);
   return newEvent;
 };
+
+export const getAllEvents = (): Event[] => events;
+
+export const getEventById = (id: string): Event | undefined =>
+  events.find(e => e.id === id);
