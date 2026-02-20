@@ -1,5 +1,5 @@
 export interface Event {
-  id?: string;
+  id: string;
   name: string;
   date: string;
   capacity: number;
@@ -7,3 +7,5 @@ export interface Event {
   status: "active" | "cancelled";
   category: string;
 }
+
+export type CreateEventDTO = Omit<Event, "id" | "registrationCount" | "status">;

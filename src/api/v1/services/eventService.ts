@@ -1,9 +1,15 @@
-import { Event } from "../models/Event";
+import { Event, CreateEventDTO } from "../models/Event";
 
-export const createEvent = (event: Event): Event => {
-  return event;
-};
+const events: Event[] = [];
 
-export const getAllEvents = (): Event[] => {
-  return [];
+export const createEvent = (eventData: CreateEventDTO): Event => {
+  const newEvent: Event = {
+    ...eventData,
+    id: Date.now().toString(),
+    registrationCount: 0,
+    status: "active",
+  };
+
+  events.push(newEvent);
+  return newEvent;
 };
