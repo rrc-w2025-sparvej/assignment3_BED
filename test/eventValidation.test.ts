@@ -15,45 +15,59 @@ describe("Event Validation Schema", () => {
 
         // Assert
         expect(error).toBeUndefined();
-        expect(value.registrationCount).toBe(0); // default applied
+
+        // Defaults applied by Joi
+        expect(value.registrationCount).toBe(0);
         expect(value.status).toBe("active");
         expect(value.category).toBe("general");
     });
 
-    it("should reject event with short name", () => {
+    it("should reject event with name shorter than allowed", () => {
+        // Arrange
         const invalidEvent = {
             name: "Hi",
             date: "2026-06-01T10:00:00Z",
             capacity: 50
         };
 
+        // Act
         const { error } = eventSchemas.create.body.validate(invalidEvent);
 
+        // Assert
         expect(error).toBeDefined();
+        expect(error?.details[0].message).toMatch(/name/i);
     });
 
     it("should reject event with capacity below minimum", () => {
+        // Arrange
         const invalidEvent = {
-            name: "Valid Name",
+            name: "Valid Event Name",
             date: "2026-06-01T10:00:00Z",
             capacity: 2
         };
 
+        // Act
         const { error } = eventSchemas.create.body.validate(invalidEvent);
 
+        // Assert
         expect(error).toBeDefined();
+        expect(error?.details[0].message).toMatch(/capacity/i);
     });
 
-    it("should reject past dates", () => {
+    it("should reject event with a past date", () => {
+        // Arrange
         const invalidEvent = {
             name: "Past Event",
             date: "2020-01-01T10:00:00Z",
             capacity: 20
         };
 
+        // Act
         const { error } = eventSchemas.create.body.validate(invalidEvent);
 
+        // Assert
         expect(error).toBeDefined();
+        expect(error?.details[0].message).toMatch(/date/i);
     });
 
 });
