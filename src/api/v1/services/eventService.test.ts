@@ -59,3 +59,12 @@ it("should update event", async () => {
   expect(repository.updateDocument).toHaveBeenCalled();
   expect(result?.name).toBe("New");
 });
+
+it("should delete event", async () => {
+  jest.spyOn(service, "getEventById").mockResolvedValue({ id: "1" } as any);
+
+  const result = await service.deleteEvent("1");
+
+  expect(repository.deleteDocument).toHaveBeenCalled();
+  expect(result).toBe(true);
+});
