@@ -18,3 +18,20 @@ describe("Event Service", () => {
     expect(result.id).toBe("123");
   });
 });
+
+it("should return all events", async () => {
+  const mockDocs = {
+    docs: [
+      {
+        id: "1",
+        data: () => ({ name: "Event", capacity: 10 }),
+      },
+    ],
+  };
+
+  (repository.getDocuments as jest.Mock).mockResolvedValue(mockDocs);
+
+  const result = await service.getAllEvents();
+
+  expect(result.length).toBe(1);
+});
