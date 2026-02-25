@@ -4,7 +4,7 @@ export const eventSchemas = {
     create: {
         body: Joi.object({
             name: Joi.string()
-                .min(3)
+                .min(5)
                 .required(),
 
             date: Joi.date()
